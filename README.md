@@ -1,4 +1,4 @@
-# 🏦 SA Bank Compliance RAG
+# SA Bank Compliance RAG
 
 Grounded regulatory Q&A for South African banks. Retrieves from **official** SARB/Prudential Authority, FSCA, FIC and
 Information Regulator sources, and returns a verdict (aligned / conditionally aligned / non-aligned / cannot determine),
