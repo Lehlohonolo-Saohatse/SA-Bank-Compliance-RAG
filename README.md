@@ -16,20 +16,6 @@ gap analysis and remediation steps. **Every claim is tied to a verbatim, machine
 | Citation validator | `sacrag/agent.py` | Drops any claim whose `chunk_id`/quote is not found verbatim in the retrieved text; downgrades the verdict if nothing survives |
 | Audit trail | `logs/audit.jsonl` | Hashed query, chunk IDs, prompt version, model, corpus date |
 
-## Quick start (VS Code)
-```bash
-python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env                                    # add ANTHROPIC_API_KEY
-python scripts/fetch_corpus.py                          # downloads from official sources, prints a report
-python scripts/build_index.py --embed                   # parse + chunk + embed
-python eval/run_eval.py                                 # retrieval + abstention checks
-streamlit run app/streamlit_app.py
-```
-Without an API key the app runs in **retrieval-only mode** (shows provisions, gives no verdict).
-
-If a regulator page blocks scripted downloads, save the PDF as `corpus/manual/<doc_id>.pdf`; it overrides the download.
-
 ## Corpus: official sources
 Defined in [`corpus/manifest.yaml`](corpus/manifest.yaml). `documents:` are fetchable; `to_locate:` are confirmed-to-exist
 instruments whose exact official URL still needs verifying (promote them once located).
